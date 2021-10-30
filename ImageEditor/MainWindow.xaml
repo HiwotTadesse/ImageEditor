@@ -1,0 +1,79 @@
+﻿<Window x:Class="ImageEditor.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:ImageEditor"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="730" Width="1400"
+        WindowStartupLocation="CenterScreen"
+        Icon="icon.jpg">
+    <Grid Margin="0,2,2,0" >
+        <StackPanel>
+            <Menu IsMainMenu="True" HorizontalAlignment="Stretch" Height="36" Background="Black" >
+                <MenuItem Header="_   MyImageEditor" Height="32" Width="164" Background="#FF1F1E1E" Foreground="#FFD4CCCC" FontSize="17"  FontWeight="Bold" FontStyle="Italic" >
+
+
+                </MenuItem>
+                <MenuItem Header="_      File" Height="32" Width="94" Background="Black" Foreground="#FFECE3E3" FontSize="17" >
+                    <MenuItem Header="_Open" Click ="open"  Background="Black" Foreground="#FFECE3E3" FontSize="17"/>
+                    <MenuItem Header="_Save"  Background="Black" Foreground="#FFECE3E3" FontSize="17" Click="save"/>
+                    <Separator Background="Black" Foreground="#FFECE3E3" FontSize="17"/>
+                    <MenuItem Header="Exit" Click="exit"  Background="Black" Foreground="#FFECE3E3" FontSize="17"/>
+                </MenuItem>
+                <MenuItem Header="     _View" Height="32" Width="96" AllowDrop="True" Background="#FF1B1B1B" Foreground="White" FontSize="17">
+                    <MenuItem Header="_Undo" Background="#FF1B1B1B" Foreground="White" FontSize="17" Click="undo"/>
+                    <MenuItem Header="_Clear" Background="#FF1B1B1B" Foreground="White" FontSize="17" Click="clear"/>
+                    
+                </MenuItem>
+                <MenuItem Header="     _Edit" Height="32" Width="100" Background="#FF0A0707" Foreground="#FFF9F9F9" FontSize="17">
+                    <MenuItem Header="_Brightness" Click="brightness" Background="#FF0A0707" Foreground="#FFF9F9F9" FontSize="17"/>
+                    <MenuItem Header="_Contrast" Click="contrast" Background="#FF0A0707" Foreground="#FFF9F9F9" FontSize="17"/>
+                    <MenuItem Header="_Gamma" Click="gamma" Background="#FF0A0707" Foreground="#FFF9F9F9" FontSize="17"/>
+                    <MenuItem Header="_Color Filter"  Background="#FF0A0707" Foreground="#FFF9F9F9" FontSize="17">
+                        <MenuItem Header="_Blue" Background="#FF0A0707" Foreground="#FFF9F9F9" FontSize="17" Click="blue"/>
+                        <MenuItem Header="_Green" Background="#FF0A0707" Foreground="#FFF9F9F9" FontSize="17" Click="green"/>
+                        <MenuItem Header="_Red" Background="#FF0A0707" Foreground="#FFF9F9F9" FontSize="17" Click="red"/>
+
+                    </MenuItem>
+
+                    <MenuItem Header="_Invert" Click="invert" Background="#FF0A0707" Foreground="#FFF9F9F9" FontSize="17"/>
+                    <MenuItem Header="_Gray Scale" Click="grayscale" Background="#FF0A0707" Foreground="#FFF9F9F9" FontSize="17" />
+                    <MenuItem Header="_Blur" Click="blur" Background="#FF0A0707" Foreground="#FFF9F9F9" FontSize="17" />
+                </MenuItem>
+                <MenuItem Header="     _Image" Height="32" Width="110" Foreground="{DynamicResource {x:Static SystemColors.ControlBrushKey}}" Background="#FF212121" FontSize="17">
+                    <MenuItem Header="_Resize" Click="resize" Foreground="{DynamicResource {x:Static SystemColors.ControlBrushKey}}" Background="#FF212121" FontSize="17"/>
+                    <MenuItem Header="_Rotation" Foreground="{DynamicResource {x:Static SystemColors.ControlBrushKey}}" Background="#FF212121" FontSize="17">
+                        <MenuItem Header="_Rotation0" Foreground="{DynamicResource {x:Static SystemColors.ControlBrushKey}}" Background="#FF212121" FontSize="17" Click="rotation0"/>
+                        <MenuItem Header="_Rotation90" Foreground="{DynamicResource {x:Static SystemColors.ControlBrushKey}}" Background="#FF212121" FontSize="17" Click="rotation90"/>
+                        <MenuItem Header="_Rotation180" Foreground="{DynamicResource {x:Static SystemColors.ControlBrushKey}}" Background="#FF212121" FontSize="17" Click="rotation180"/>
+                        <MenuItem Header="_Rotation270" Foreground="{DynamicResource {x:Static SystemColors.ControlBrushKey}}" Background="#FF212121" FontSize="17" Click="rotation270"/>
+                    </MenuItem>
+                    <MenuItem Header="_Crop"  Foreground="{DynamicResource {x:Static SystemColors.ControlBrushKey}}" Background="#FF212121" FontSize="17" Click="crop"/>
+                </MenuItem>
+                <MenuItem Header="    _Insert" Height="32" Width="91" AllowDrop="True" Background="Black" Foreground="#FFF9F9F9" FontSize="17">
+                    <MenuItem Header="_Image" Click="insertImage" Background="Black" Foreground="#FFF9F9F9" FontSize="17"/>
+                    <MenuItem Header="_Text" Click="insertText" Background="Black" Foreground="#FFF9F9F9" FontSize="17"/>
+                    <MenuItem Header="Shapes"  Background="Black" Foreground="#FFF9F9F9" FontSize="17">
+                        <MenuItem Header="Ecllipse" Click="ellipse" Background="Black" Foreground="#FFF9F9F9" FontSize="17"/>
+                        <MenuItem Header="Rectangle" Click="rectangle" Background="Black" Foreground="#FFF9F9F9" FontSize="17"/>
+                        <MenuItem Header="Rounded Rectangle" Click="roundRectangle" Background="Black" Foreground="#FFF9F9F9" FontSize="17"/>
+                    </MenuItem>
+                </MenuItem>
+                <MenuItem Header="_    Add Your Notes" Height="32" Width="164" Background="#FF1F1E1E" Foreground="#FFECE3E3" FontSize="17" Click="notes">
+
+                </MenuItem>
+                <MenuItem Header="_    see Your Notes" Height="32"  Width="170" Background="Black" Foreground="#FFECE3E3" FontSize="17" Click="viewnote">
+
+                </MenuItem>
+            </Menu>
+        </StackPanel>
+        <Canvas Margin="-2,32,0,0" Background="Black">
+
+            <Image x:Name="img" Source="{Binding CurrentBitmap}"  Height="542" Canvas.Left="138" Width="1036" Canvas.Top="24"/>
+
+        </Canvas>
+
+
+    </Grid>
+</Window>

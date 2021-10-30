@@ -1,0 +1,30 @@
+﻿<Window x:Class="ImageEditor.gamma"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:ImageEditor"
+        mc:Ignorable="d"
+        Title="gamma" Height="250" Width="440">
+    <Grid Margin="0,0,1,1" Background="{DynamicResource {x:Static SystemColors.InactiveCaptionTextBrushKey}}">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="99*"/>
+            <ColumnDefinition Width="148*"/>
+            <ColumnDefinition Width="144*"/>
+        </Grid.ColumnDefinitions>
+        <Slider HorizontalAlignment="Left" Margin="41,28,0,0" VerticalAlignment="Top" Height="31" Width="287" Maximum="255" Minimum="-255" Value="0" Name="Redvalue"  Background="{DynamicResource {x:Static SystemColors.InactiveCaptionTextBrushKey}}" Foreground="#FF1B0808" BorderBrush="#FFF3F3F3"  Grid.ColumnSpan="3" />
+        <TextBox HorizontalAlignment="Left" Height="41" Margin="75,20,0,0"  TextWrapping="Wrap" FontSize="25" VerticalAlignment="Top" Width="53" Name="r" Text="{Binding ElementName=Redvalue, Path=Value, ValidatesOnDataErrors=True, UpdateSourceTrigger=PropertyChanged, StringFormat={}{0:0}}" Validation.ErrorTemplate="{x:Null}" Grid.Column="2"   />
+
+        <Slider HorizontalAlignment="Left" Margin="41,89,0,0" VerticalAlignment="Top" Height="31" Width="286" Maximum="255" Minimum="-255" Value="0" x:Name="Greenvalue"  Background="{DynamicResource {x:Static SystemColors.InactiveCaptionTextBrushKey}}" Foreground="#FF1B0808" BorderBrush="#FFF3F3F3"  Grid.ColumnSpan="3" />
+        <Slider HorizontalAlignment="Left" Margin="41,144,0,0" VerticalAlignment="Top" Height="31" Width="283" Maximum="255" Minimum="-255" Value="0" x:Name="Bluevalue"  Background="{DynamicResource {x:Static SystemColors.InactiveCaptionTextBrushKey}}" Foreground="#FF1B0808" BorderBrush="#FFF3F3F3"  Grid.ColumnSpan="3" />
+        <TextBox HorizontalAlignment="Left" Height="41" Margin="73,81,0,0"  TextWrapping="Wrap" FontSize="25" VerticalAlignment="Top" Width="53" x:Name="g" Text="{Binding Value, ElementName=Greenvalue,  UpdateSourceTrigger=PropertyChanged, ValidatesOnDataErrors=True, StringFormat={}{0:0}}" Validation.ErrorTemplate="{x:Null}" Grid.Column="2"  />
+        <TextBox HorizontalAlignment="Left" Height="41" Margin="73,136,0,0"  TextWrapping="Wrap" FontSize="25" VerticalAlignment="Top" Width="53" x:Name="b" Text="{Binding Value, ElementName=Bluevalue,  UpdateSourceTrigger=PropertyChanged, ValidatesOnDataErrors=True, StringFormat={}{0:0}}" Validation.ErrorTemplate="{x:Null}" Grid.Column="2"  />
+        <Button Content="Ok" Grid.Column="1" HorizontalAlignment="Left" Margin="39,183,0,0" VerticalAlignment="Top" Width="75" Click="Button_Click"/>
+        <Button Content="Cancel" Grid.Column="1" HorizontalAlignment="Left" Margin="136,182,0,0" VerticalAlignment="Top" Width="75" Grid.ColumnSpan="2" Click="Button_Click_1"/>
+        <Label Content="R" HorizontalAlignment="Left" Margin="8,11,0,0" VerticalAlignment="Top" Foreground="White" FontSize="30" Width="26"/>
+        <Label Content="G" HorizontalAlignment="Left" Margin="7,69,0,0" VerticalAlignment="Top" Foreground="White" FontSize="30" Width="29"/>
+        <Label Content="B" HorizontalAlignment="Left" Margin="7,127,0,0" VerticalAlignment="Top" Foreground="White" FontSize="30" Width="26"/>
+
+
+    </Grid>
+</Window>
